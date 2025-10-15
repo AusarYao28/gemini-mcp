@@ -1,0 +1,186 @@
+# Network Quiz Assistant
+
+This file provides specialized knowledge for completing computer network quiz questions with high accuracy.
+
+## Mission
+As a computer network expert, help complete network quiz questions by following systematic analysis and networking-specific knowledge while verifying answers against reliable sources.
+
+## Analysis Process
+
+### 1. Question Assessment
+- **Take screenshot** to see full question and all options clearly
+- **Identify question type**:
+  - Technical specifications (distances, speeds, standards)
+  - Protocol behavior (collision domains, duplex modes)
+  - Conversions (binary/hex/decimal)
+  - IEEE standards and technologies
+
+### 2. Apply Network Knowledge
+Refer to the knowledge base below before making decisions.
+
+### 3. Verification Strategy
+- **For basic networking concepts**: Trust existing knowledge
+- **For specific technical specs**: Verify against reliable sources when uncertain
+- **For standards questions**: Research IEEE documentation if needed
+- **For calculations**: Double-check conversion logic systematically
+- **For similar options**: Extract exact text, don't rely on paraphrasing
+- **For edge cases**: Research ambiguous concepts before answering
+
+### 4. Answer Selection
+- **Single answer (radio buttons)**: Single click
+- **Multiple answers (checkboxes)**: Single click each correct option
+- **Verify selection**: Ensure correct answers are selected before proceeding
+
+### 5. Navigation
+- Click "Next" button to proceed to next question
+- Continue until all questions are completed
+- Handle confirmation dialogs promptly
+
+## Network Knowledge Base
+
+### IP Address Classes (CRITICAL)
+- **Class A**: 1.0.0.0 to 126.255.255.255 (8-bit network, 24-bit host)
+- **Class B**: 128.0.0.0 to 191.255.255.255 (16-bit network, 16-bit host)
+- **Class C**: 192.0.0.0 to 223.255.255.255 (24-bit network, 8-bit host)
+- **Loopback**: 127.x.x.x (reserved, not Class A)
+
+### Special Address Ranges
+- **Private IPs**: 10.x.x.x, 172.16-31.x.x, 192.168.x.x (NOT routable on Internet)
+- **APIPA**: 169.254.0.1 to 169.254.255.254 (automatic when DHCP fails)
+- **Broadcast**: All host bits = 1 (e.g., 192.168.1.255 for /24 network)
+- **Network**: All host bits = 0 (e.g., 192.168.1.0 for /24 network)
+- **Default route**: 0.0.0.0/0 (Cisco notation for "any destination")
+
+### Address Types
+- **Unicast**: One-to-one (packets to single interface)
+- **Multicast**: One-to-many (packets to group members)
+- **Anycast**: One-to-nearest (multiple interfaces, delivered to closest)
+- **Broadcast**: One-to-all (all devices in broadcast domain)
+
+### Layer 2 vs Layer 3
+- **Layer 2 broadcast**: FF:FF:FF:FF:FF:FF (MAC address)
+- **Layer 3 broadcast**: 255.255.255.255 or network broadcast (IP address)
+- **Layer 2 scope**: Single LAN segment (switches don't forward)
+- **Layer 3 scope**: Routed networks (routers can forward)
+
+### Ethernet Distance Specifications (CRITICAL)
+- **1000BaseT**: 100m max over Cat5e/6 UTP
+- **100BaseTX**: 100m max over Cat5/5e/6 UTP
+- **10Base2**: ~185m max over thin coax
+- **10GBaseLR**: ~10km over single-mode fiber
+- **10GBaseSR**: ~300m over multimode fiber
+- **10GBaseER**: ~40km over single-mode fiber
+
+### Wire Pair Usage
+- **100BaseTX**: 2 pairs (1 TX, 1 RX)
+- **1000BaseT**: 4 pairs (all bidirectional)
+- **10BaseT**: 2 pairs
+
+### Duplex and Access Control
+- **Full-duplex**: Simultaneous TX/RX, doubles throughput
+- **Half-duplex**: One direction at a time, uses CSMA/CD
+- **CSMA/CD**: Carrier Sense Multiple Access with Collision Detection
+- **Hubs**: Cannot support full-duplex (shared medium)
+- **Switches**: Support full-duplex (dedicated segments)
+
+### Domain Concepts
+- **Collision domain**: All devices must listen when one transmits
+- **Broadcast domain**: Logical division for broadcast packets
+- **Baseband**: Single signal uses entire bandwidth
+- **Broadband**: Multiple signals on different frequencies
+
+### IEEE Standards and Technologies
+- **802.3**: Ethernet family standards
+- **802.3bq**: 40GBASE-T standard
+- **1901**: Powerline communication (Ethernet over power lines)
+- **802.16**: WiMAX (not Ethernet)
+
+### Technical Conversions
+- **Binary to Decimal**: Sum powers of 2 (11101000₂ = 128+64+32+8 = 232₁₀)
+- **Binary to Hex**: Group by 4 bits (1111₂ = F₁₆, 1010₂ = A₁₆)
+- **Hex values**: 0-9, A=10, B=11, C=12, D=13, E=14, F=15
+- **MAC Address**: 48 bits (6 bytes) in hex format
+- **EUI-64**: Insert FFFE in middle, flip 7th bit of first octet (00→02, 02→00)
+
+### Frame Structure
+- **SOF (Start of Frame)**: 1 byte (8 bits = 1 octet)
+- **MAC addresses**: Source and destination in frame header
+- **Frame components**: Preamble, SOF, header, data, FCS
+
+## Common Quiz Patterns
+
+### IP Address Questions
+- **"Valid Class X address"**: Check first octet ranges carefully
+- **"Private IP"**: Must be RFC 1918 ranges, not routable on Internet
+- **"Broadcast vs Network"**: Host bits all 1s vs all 0s
+- **"APIPA range"**: Always 169.254.x.x
+
+### Address Type Questions
+- **"Unicast"**: Single destination interface
+- **"Multicast"**: Multiple specific interfaces (group members)
+- **"Anycast"**: Multiple interfaces, delivered to one (nearest)
+- **"Broadcast"**: All interfaces in domain
+
+### Layer Questions
+- **"Layer 2 broadcast"**: FF:FF:FF:FF:FF:FF (MAC)
+- **"Layer 3 broadcast"**: 255.255.255.255 or network broadcast (IP)
+- **"LAN vs WAN"**: Layer 2 broadcasts stay within LAN
+
+### Specification Questions
+- **"Maximum distance of..."**: Usually testing standard specifications
+- **"How many wire pairs..."**: Testing cable requirements
+- **"What does base mean..."**: Testing baseband vs broadband understanding
+
+### Concept Questions
+- **"Collision domain"** vs **"Broadcast domain"**: Different network divisions
+- **"Full-duplex"** vs **"Half-duplex"**: Communication direction capabilities
+- **Device capabilities**: Hubs vs switches vs routers
+
+### Conversion Questions
+- Binary/hex/decimal conversions are common
+- Address size questions (MAC = 48 bits, IPv6 = 128 bits)
+- Frame field sizes (SOF = 1 octet)
+- EUI-64 conversions from MAC addresses
+
+### Standards Questions
+- IEEE 802.3 family for Ethernet
+- Specific committee standards (802.3bq = 40GBaseT)
+- Non-Ethernet standards (1901 = Powerline)
+
+## Error Prevention Checklist
+
+1. **Distinguish question types**: IP addressing vs specifications vs concepts vs conversions
+2. **Parse options precisely**: Read exact text from snapshots, avoid paraphrasing
+3. **Apply systematic knowledge**: Use IP addressing fundamentals before researching
+4. **Verify calculations**: Double-check binary/hex math and EUI-64 conversions
+5. **Consider all options**: Eliminate obviously wrong answers methodically
+6. **Handle similar options**: When options appear identical, extract exact text
+7. **Confirm selections**: Ensure correct options are selected before proceeding
+8. **Handle dialogs**: Respond to confirmations promptly
+
+## High-Accuracy Decision Framework
+
+### For IP Address Questions
+1. **Identify address class**: Check first octet (1-126=A, 128-191=B, 192-223=C)
+2. **Check for special ranges**: Private (10.x, 172.16-31.x, 192.168.x), APIPA (169.254.x), Loopback (127.x)
+3. **Verify host/network interpretation**: All 0s=network, all 1s=broadcast
+
+### For Address Type Questions
+1. **Unicast**: One destination only
+2. **Multicast**: Specific group of destinations
+3. **Anycast**: Multiple destinations, delivered to nearest
+4. **Broadcast**: All destinations in domain
+
+### For Layer Questions
+1. **Layer 2**: MAC addresses (FF:FF:FF:FF:FF:FF), LAN scope only
+2. **Layer 3**: IP addresses (255.255.255.255), can be routed
+
+## Browser Interaction Protocol
+
+- Use MCP browser tools for all interactions
+- Take screenshot first to read questions clearly
+- Use single clicks for all answer selections
+- Handle confirmation dialogs promptly
+- Continue until quiz completion
+
+This systematic approach should achieve high accuracy by leveraging networking fundamentals and providing clear decision frameworks for common quiz patterns.
